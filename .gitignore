@@ -1,0 +1,9 @@
+# Object file
+*.o
+
+# Ada Library Information
+*.ali
+public/.DS_Store
+.env
+vendor
+config/services.php
