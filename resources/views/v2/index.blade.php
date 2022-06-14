@@ -542,7 +542,7 @@
             $('.mfp-close').click();
         });
         $(".logout").click(function () {
-            axios.post('/logout')
+            axios.post("{{ url('/logout') }}")
                 .then(() => location.href = '/index')
         });
 
