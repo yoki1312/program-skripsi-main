@@ -39,6 +39,7 @@ class KomentController extends Controller
         $koment = new Koment;
         $koment->koment = $request->komentar;
         $koment->produk_id = $request->produk_id;
+        $koment->rating = $request->rating;
         $koment->user_id = Auth::user()->id;
         $koment->created_at = date('Y-m-d');
         $koment->save();

@@ -113,6 +113,12 @@
     <link href="{!! asset('v2/css/blog.css') !!}" rel="stylesheet">
     <link href="{!! asset('v2/css/contacts.css') !!}" rel="stylesheet">
 </head>
+<style>
+    .checked-rating {
+        color: orange;
+    }
+
+</style>
 
 <body>
 
@@ -198,7 +204,7 @@
                         <a href="#0" class="show-submenu">Referensi</a>
                         <ul>
                             <li><a href="{{ url('artikel-v2') }}">Artikel</a></li>
-                            <li><a href="{{ url('bank-data-v2') }}">Bank Tanaman</a></li>
+                            <!-- <li><a href="{{ url('bank-data-v2') }}">Bank Tanaman</a></li> -->
                         </ul>
                     </li>
                     <li class="submenu">
@@ -296,47 +302,92 @@
         <div class="modal_header">
             <h3>Sign In</h3>
         </div>
-            <div class="sign-in-wrapper">
-                <a href="{{ url('auth/google') }}" class="social_bt google">Login with Google</a>
-                <div class="divider"><span>Or</span></div>
-                <form method="POST" action="{{ url('loginPembeli') }}">
-                    @csrf
+        <div class="sign-in-wrapper">
+            <a href="{{ url('auth/google') }}" class="social_bt google">Login with Google</a>
+            <div class="divider"><span>Or</span></div>
+            <form method="POST" action="{{ url('loginPembeli') }}">
+                @csrf
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" name="email" id="email">
+                    <i class="icon_mail_alt"></i>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="password" id="password" value="">
+                    <i class="icon_lock_alt"></i>
+                </div>
+                <div class="clearfix add_bottom_15">
+                    <div class="checkboxes float-left">
+                        <label class="container_check">Remember me
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="float-right"><a id="forgot" href="javascript:void(0);">Forgot Password?</a></div>
+                </div>
+                <div class="text-center">
+                    <input type="submit" value="Log In" class="btn_1 full-width mb_5">
+                    Don’t have an account? <a class="btn-open-modal-register">Sign up</a>
+                </div>
+                <div id="forgot_pw">
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" class="form-control" name="email" id="email">
+                        <label>Please confirm login email below</label>
+                        <input type="email" class="form-control" name="email_forgot" id="email_forgot">
                         <i class="icon_mail_alt"></i>
                     </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control" name="password" id="password" value="">
-                        <i class="icon_lock_alt"></i>
-                    </div>
-                    <div class="clearfix add_bottom_15">
-                        <div class="checkboxes float-left">
-                            <label class="container_check">Remember me
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="float-right"><a id="forgot" href="javascript:void(0);">Forgot Password?</a></div>
-                    </div>
-                    <div class="text-center">
-                        <input type="submit" value="Log In" class="btn_1 full-width mb_5">
-                        Don’t have an account? <a href="register.html">Sign up</a>
-                    </div>
-                    <div id="forgot_pw">
-                        <div class="form-group">
-                            <label>Please confirm login email below</label>
-                            <input type="email" class="form-control" name="email_forgot" id="email_forgot">
-                            <i class="icon_mail_alt"></i>
-                        </div>
-                        <p>You will receive an email containing a link allowing you to reset your password to a new
-                            preferred one.</p>
-                        <div class="text-center"><input type="submit" value="Reset Password" class="btn_1"></div>
-                    </div>
-                </form>
-            </div>
+                    <p>You will receive an email containing a link allowing you to reset your password to a new
+                        preferred one.</p>
+                    <div class="text-center"><input type="submit" value="Reset Password" class="btn_1"></div>
+                </div>
+            </form>
+        </div>
         <!--form -->
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modal-daftar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <form method="POST" action="{{ route('register') }}">
+                            @csrf
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Daftar Pengguna Baru</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                       <div class="row">
+                       <div class="form-group">
+                            <label for="exampleInputEmail1">Nama Lengkap</label>
+                            <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                placeholder="Masukan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Alamat Email</label>
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1"
+                                placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Konfirmasi Password</label>
+                            <input type="password" name="password_confirmation" class="form-control" id="exampleInputPassword1"
+                                placeholder="Password">
+                        </div>
+                       </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-sm btn-success">Simpan</button>
+                    </div>
+            </form>
+        </div>
     </div>
     @if ($message = Session::get('success'))
     <script>
@@ -446,7 +497,7 @@
             function getPreOrder() {
                 $.ajax({
                     type: "POST",
-                    url: '{{ url('getDataPreorder ') }}',
+                    url: '{{ url("getDataPreorder") }}',
                     data: {
                         "_token": $('meta[name="csrf-token"]').attr('content')
                     },
@@ -485,6 +536,10 @@
             }).catch((error) => {
                 console.log(error.response.data)
             });
+        });
+        $(document).on('click', '.btn-open-modal-register', function () {
+            $('#modal-daftar').modal('show');
+            $('.mfp-close').click();
         });
         $(".logout").click(function () {
             axios.post('/logout')

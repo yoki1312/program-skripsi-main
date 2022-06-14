@@ -132,15 +132,14 @@ class LoginUserController extends Controller
         $user->name = ucwords(strtolower($request->name));
         $user->email = strtolower($request->email);
         $user->password = Hash::make($request->password);
-        $user->email_verified_at = \Carbon\Carbon::now();
         $simpan = $user->save();
  
         if($simpan){
             Session::flash('success', 'Register berhasil! Silahkan login untuk mengakses data');
-            return redirect()->route('login');
+            return redirect('/');
         } else {
             Session::flash('errors', ['' => 'Register gagal! Silahkan ulangi beberapa saat lagi']);
-            return redirect()->route('register');
+            return redirect('/');
         }
     }
  

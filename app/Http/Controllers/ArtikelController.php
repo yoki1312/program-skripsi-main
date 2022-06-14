@@ -42,6 +42,7 @@ class ArtikelController extends Controller
        return DB::table('komentar_artikel')->insert([
             'id_artikel' => $in->id_artikel,
             'komentar'  => $in->komentar,
+            'rating'  => $in->rating,
             'id_user'    => Auth::user()->id,
             'created_at'    => date('Y-m-d'),
             'updated_at'    => date('Y-m-d')

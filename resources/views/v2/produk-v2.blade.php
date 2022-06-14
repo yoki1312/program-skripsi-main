@@ -32,7 +32,29 @@
                         <div class="inner_bt clearfix">Filters<a href="#" class="open_filters" target="_top"><i
                                     class="icon_close"></i></a></div>
                         <div class="filter_type">
-                            <h4><a href="#filter_1" data-toggle="collapse" class="opened" target="_top">Sort</a>
+                            <h4><a href="#filter_0" data-toggle="collapse" class="opened" target="_top">Produk</a>
+                            </h4>
+                            <div class="collapse" id="filter_0">
+                                <ul>
+                                    <li>
+                                        <label class="container_radio">Terjual
+                                            <input value="sold"
+                                                type="radio" name="filter_produk">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="container_radio">Tersedia
+                                            <input value="ready"
+                                                type="radio" checked name="filter_produk">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="filter_type">
+                            <h4><a href="#filter_1" data-toggle="collapse" class="opened" target="_top">Urutkan</a>
                             </h4>
                             <div class="collapse" id="filter_1">
                                 <ul>
@@ -55,7 +77,7 @@
                         </div>
                         <!-- /filter_type -->
                         <div class="filter_type">
-                            <h4><a href="#filter_2" data-toggle="collapse" class="closed" target="_top">Categories</a>
+                            <h4><a href="#filter_2" data-toggle="collapse" class="closed" target="_top">Kategori</a>
                             </h4>
                             <div class="collapse show" id="filter_2">
                                 <ul>
@@ -194,11 +216,12 @@
     });
 
     function fetch_data(page) {
+        var filter_produk = $('input[name="filter_produk"]:checked').val();
         var id_kategori = $('input[name="id_kategori"]:checked').val();
         var sort_filter = $('input[name="filter_sort"]:checked').val();
         var nama_tanaman = $('.srch').val();
         $.ajax({
-            url: "/produk-v2?page=" + page + '&id_kategori=' + id_kategori + '&filter_sort=' + sort_filter + '&nama_tanaman=' + nama_tanaman,
+            url: "/produk-v2?page=" + page + '&id_kategori=' + id_kategori + '&filter_sort=' + sort_filter + '&nama_tanaman=' + nama_tanaman+'&filter_produk=' + filter_produk,
             type: "get",
             datatype: "html",
             success: function (data) {

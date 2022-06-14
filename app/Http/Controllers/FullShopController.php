@@ -31,7 +31,17 @@ class FullShopController extends Controller
         $in = $request;
         $sort_filter = '';
         $id_kategori = '';
-        $sql = "select ta.*, tb.nama_kategori from barang ta join kategori tb ON ta.id_kategori = tb.id_kategori where ta.status is null and ta.deleted_at is null and ta.diskon = '0'";
+        $sql = "select ta.*, tb.nama_kategori from barang ta join kategori tb ON ta.id_kategori = tb.id_kategori where  ta.deleted_at is null and ta.diskon = '0'";
+        if(isset($in->filter_produk)){
+            if($in->filter_produk == 'sold'){
+                $sql .= " and ta.status = '1' ";
+            }
+            if($in->filter_produk == 'ready'){
+                $sql .= " and ta.status is null ";
+            }
+        }else{
+            $sql .= " and ta.status is null";
+        }
         if(!empty($in->id_kategori)){
             $sql .= " AND ta.id_kategori = '$in->id_kategori'";
             $id_kategori = $request->id_kategori;

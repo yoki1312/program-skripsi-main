@@ -17,11 +17,22 @@
                                     <div class="col-md-10 review_content">
 
                                         <h4>"{{ $data->judul }}"</h4>
+                                        <label class="form-label">Rating Artikel : </label>
+                                        <span data-star="1"
+                                            class="rating-glob-barang rating-glob-row-1 fa fa-star"></span>
+                                        <span data-star="2"
+                                            class="rating-glob-barang rating-glob-row-2 fa fa-star"></span>
+                                        <span data-star="3"
+                                            class="rating-glob-barang rating-glob-row-3 fa fa-star"></span>
+                                        <span data-star="4"
+                                            class="rating-glob-barang rating-glob-row-4 fa fa-star"></span>
+                                        <span data-star="5"
+                                            class="rating-glob-barang rating-glob-row-5 fa fa-star"></span><br>
                                         <small><b>{{ $data->nama_kategori }}</b></small>
                                         <p>{!! $data->isi !!}</p>
-                                       
+
                                         <ul style="">
-                                            <li
+                                            <!-- <li
                                                 style="display: inline-block;/* background: green; */border-radius: 12px;border: 1px green solid;font-c: white;">
                                                 <button class="btn btn-sm btn-default"><i class="icon_like"></i>
                                                     &nbsp;<span>Like</span></button></li>
@@ -29,7 +40,7 @@
                                                 style="display: inline-block;/* background: green; */border-radius: 12px;border: 1px green solid;font-c: white;">
                                                 <button class="btn btn-sm btn-default"><i class="icon_dislike"></i>
                                                     &nbsp;<span>Not Like</span></button>
-                                            </li>
+                                            </li> -->
                                             <li
                                                 style="display: inline-block;/* background: green; */border-radius: 12px;border: 1px green solid;font-c: white;">
                                                 <button class="btn btn-sm btn-default btn-add-komentar"><i
@@ -46,12 +57,23 @@
                                 style="padding: 10px 25px 10px 25px; display:none">
                                 <label>Tambah Komentar Anda</label>
                                 <div class="row">
-                                    <textarea cols="3" class="form-control komentar-user"></textarea>
+                                    <div class="col-sm-12">
+                                        <label class="form-label">Rating Artikel : </label>
+                                        <span data-star-barang="1" class="rating-barang fa fa-star"></span>
+                                        <span data-star-barang="2" class="rating-barang fa fa-star"></span>
+                                        <span data-star-barang="3" class="rating-barang fa fa-star"></span>
+                                        <span data-star-barang="4" class="rating-barang fa fa-star"></span>
+                                        <span data-star-barang="5" class="rating-barang fa fa-star"></span>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <textarea cols="3" class="form-control komentar-user"></textarea>
+
+                                    </div>
                                 </div>
                                 <br>
                                 <div class="row">
-                                    <button produk-id="" width="100%"
-                                        class="btn btn-info" onclick="postKoment()">Kirim Komentar</button>
+                                    <button produk-id="" width="100%" class="btn btn-info" onclick="postKoment()">Kirim
+                                        Komentar</button>
                                 </div>
                                 <!-- /row -->
                             </div>
@@ -75,8 +97,7 @@
                         <div class="main">
                             <div class="row">
                                 <img id="zoom1" src="{{ asset('upload/artikel/'.$data->foto_tips) }}"
-                                    data-zoom-image="{{ asset('upload/artikel/'.$data->foto_tips) }}"
-                                    alt="big-1">
+                                    data-zoom-image="{{ asset('upload/artikel/'.$data->foto_tips) }}" alt="big-1">
                             </div>
                             <br>
                             <br>
@@ -110,11 +131,21 @@
             </div>
         </div>
     </div>
-
+    <input hidden type="text" class="rating-val" value="0" />
 </main>
+
 @endsection
 @section('js')
 <script>
+    $(document).on('click', '.rating-barang', function () {
+        let index = $(this).attr('data-star-barang');
+        let ratingStart = 1;
+        $('.rating-barang').removeClass('checked-rating')
+        for (i = ratingStart; i <= index; i++) {
+            $("[data-star-barang='" + i + "']").addClass('checked-rating')
+        }
+        $('.rating-val').val(index)
+    })
     $(document).on('click', '.btn-add-komentar', function () {
         $('.add-komentar-section').show();
     });
@@ -122,7 +153,7 @@
         var id_komentar = this.id;
         $.ajax({
             type: "POST",
-            url: '{{ url('artikel-v2/removeKoment') }}',
+            url: '{{ url("artikel-v2/removeKoment") }}',
             data: {
                 "_token": $('meta[name="csrf-token"]').attr('content'),
                 "id_komentar": id_komentar
@@ -133,11 +164,12 @@
         });
     });
     getKomentProduk();
+
     function getKomentProduk() {
         var section = $('#reviews');
         $.ajax({
             type: "POST",
-            url: '{{ url('artikel-v2/getKomentar/'.$data->id_tips) }}',
+            url: '{{ url("artikel-v2/getKomentar/".$data->id_tips) }}',
             data: {
                 "_token": $('meta[name="csrf-token"]').attr('content')
             },
@@ -154,46 +186,67 @@
                                 
                             </div>
                         </div>`;
-                if(response.length != 0){
+                if (response.length != 0) {
+                    var nilai_rating = 0;
                     for (i = 0; i < response.length; i++) {
                         var data = response[i];
+                        nilai_rating += data['rating'];
                         var template = `
                             <div class="review_card">
                                 <div class="row">
                                     <div class="col-md-2 user_info">
-                                        <figure> <img class="img-koment" src="/upload/foto_profile/` + data['foto_profile'] + `" alt="...">
+                                    <figure> 
+                                            <img class="img-koment" src="`+ (data['foto_profile'] == null ? 'https://sman93jkt.sch.id/wp-content/uploads/2018/01/765-default-avatar.png' : `/upload/foto_profile/` + data['foto_profile'] ) +`" alt="...">
                                         </figure>
                                     </div>
                                     <div class="col-md-10 review_content">
                                         <div class="clearfix add_bottom_15">
-                                            <em>Komentar pada {{ date('d F Y',strtotime(` + data['created_at'] + `)) }}</em>
+                                        <em>Komentar pada ` + data['created_at'] + ` Oleh <b>` + data['name'] + `</b></em>
                                         </div>
-                                        <h4>"` + data['name'] + `"</h4>
-                                        <p>` + data['koment'] + `</p>
+                                        <div class="clearfix add_bottom">
+                                        <label class="form-label">Rating Barang : </label>
+                                            <span data-star-barang="1" class="` + ( data['rating'] >= 1 ? 'checked-rating' : ''  ) + ` fa fa-star"></span>
+                                            <span data-star-barang="2" class="` + ( data['rating'] >= 2 ? 'checked-rating' : ''  ) + ` fa fa-star"></span>
+                                            <span data-star-barang="3" class="` + ( data['rating'] >= 3 ? 'checked-rating' : ''  ) + ` fa fa-star"></span>
+                                            <span data-star-barang="4" class="` + ( data['rating'] >= 4 ? 'checked-rating' : ''  ) + ` fa fa-star"></span>
+                                            <span data-star-barang="5" class="` + ( data['rating'] >= 5 ? 'checked-rating' : ''  ) + ` fa fa-star"></span>
+                                        </div>
+                                        <p>` + (data['koment'] == null ? '' : data['koment']) + `</p>
                                         <ul>
-                                                <li><a type="button" class="btn-hapus-komentar" id="`+data['id_koment']+`"><span>Hapus Komentar</span></a></li>
+                                                <li><a type="button" class="btn-hapus-komentar" id="` + data[
+                            'id_koment'] + `"><span>Hapus Komentar</span></a></li>
                                         </ul>
                                     </div>
                                     
                                 </div>
                             </div>`;
-                            section.append(template);
+
+                        section.append(template);
+                    }
+                    let total_rating_produk = Math.floor(nilai_rating/ response.length);
+                    console.log(total_rating_produk);
+                    $('.rating-glob-barang').removeClass('checked-rating');
+                    console.log(total_rating_produk);
+                    for(i=1; i<=total_rating_produk; i++){
+                        $(".rating-glob-row-" + i).addClass('checked-rating');
                     }
 
-                }else{
-                        section.append(templateKosong);
+                } else {
+                    section.append(templateKosong);
                 }
             }
         });
     };
-    function postKoment(){
+
+    function postKoment() {
         $.ajax({
             type: "POST",
-            url: '{{ url('artikel-v2/postKoment') }}',
+            url: '{{ url("artikel-v2/postKoment") }}',
             data: {
                 "_token": $('meta[name="csrf-token"]').attr('content'),
                 "komentar": $('.komentar-user').val(),
-                "id_artikel": {{ $data->id_tips}}
+                "id_artikel": "{{ $data->id_tips }}",
+                "rating": $('.rating-val').val()
             },
             success: function (response) {
                 getKomentProduk();
