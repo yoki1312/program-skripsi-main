@@ -240,7 +240,7 @@
     $(document).on('click', '.add-to-cart', function () {
         var auth = $('meta[name="auth"]').attr('content');
         if (auth != null) {
-            axios.post('/add-to-cart', {
+            axios.post('{{ url("add-to-cart") }}', {
                 produk_id: $(this).attr('produk-id')
             }).then((response) => {
                 var params = response.data;
