@@ -100,7 +100,7 @@
                             </div>
                         </div>
                         <!-- /filter_type -->
-                        <p><button type="button" onclick="fetch_data(this)"
+                        <p><button type="button" onclick="fetch_data()"
                                 class=" btn_1 outline full-width">Filter</button></p>
                     </div>
                     <div class="resize-sensor"
@@ -181,17 +181,17 @@
 @endsection
 @section('js')
 <script>
+    var page = 1
     $(document).ready(function () {
-
         $(document).on('click', '.page-link', function (event) {
             event.preventDefault();
-            var page = $(this).attr('href').split('page=')[1];
-            fetch_data(page);
+            page = $(this).attr('href').split('page=')[1];
+            fetch_data();
         });
         $(document).on('click', '.add-to-cart', function () {
             var auth = $('meta[name="auth"]').attr('content');
             if (auth != null) {
-                axios.post('/add-to-cart', {
+                axios.post("{{ url('/add-to-cart') }}", {
                     produk_id: $(this).attr('produk-id')
                 }).then((response) => {
                     var params = response.data;
@@ -215,14 +215,21 @@
 
     });
 
-    function fetch_data(page) {
+    function fetch_data() {
         var filter_produk = $('input[name="filter_produk"]:checked').val();
         var id_kategori = $('input[name="id_kategori"]:checked').val();
         var sort_filter = $('input[name="filter_sort"]:checked').val();
         var nama_tanaman = $('.srch').val();
         $.ajax({
-            url: "/produk-v2?page=" + page + '&id_kategori=' + id_kategori + '&filter_sort=' + sort_filter + '&nama_tanaman=' + nama_tanaman+'&filter_produk=' + filter_produk,
+            url: "{{ url('/produk-v2') }}",
             type: "get",
+            data : {
+                'page' : page,
+                'id_kategori' : id_kategori,
+                'filter_sort' : sort_filter,
+                'nama_tanaman' : nama_tanaman,
+                'filter_produk' : filter_produk,
+            },
             datatype: "html",
             success: function (data) {
                 $('#section-produk').html(data);
