@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                             <a class="btn_1 gradient full-width mb_5 order btn-bayar btn-tf">Bayar Sekarang</a>
-                            <a style="display:none" target="_blank" href="https://wa.me/6285730982703?text=Konfirmasi%20pembelian%20{{ Auth::user()->name }}%20" class="btn_1 gradient full-width mb_5 btn-wa">Konfirmasi Whatsaap</a>
+                            <!-- <a style="display:none" target="_blank" href="https://wa.me/6285730982703?text=Konfirmasi%20pembelian%20{{ Auth::user()->name }}%20" class="btn_1 gradient full-width mb_5 btn-wa">Konfirmasi Whatsaap</a> -->
                         </div>
                     </div>
                 </div>
@@ -173,9 +173,9 @@
                     }).then((response) => {
                         var data = response.data;
                         console.log(response)
-                        // window.open('https://wa.me/6285730982703?text=Konfirmasi%20pembelian%20no-transaksi%20"'+ response.data +'"');
+                        window.open('https://wa.me/6285730982703?text=Konfirmasi%20pembelian%20no-transaksi%20"'+ response.data +'"');
 
-                        window.open(data.payment_url)
+                        // window.open(data.payment_url)
                     }).catch((error) => {
                         console.log(error.response)
                     });
