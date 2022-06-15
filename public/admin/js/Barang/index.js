@@ -32,8 +32,9 @@ $(document).ready(function () {
         },
         columns: [{
                 data: 'blank',
-                render : function(meta, row,data){
-                    return '<img src="' + asset_url + 'produk/sampul/'+ row.gambar_sampul +'" />'
+                class: 'text-center',
+                render: function (meta, row, data) {
+                    return '<img style="width: 110px;" src="' + asset_url + 'upload/img_barang/' + data.gambar_sampul + '" />'
                 }
             },
             {
@@ -72,7 +73,7 @@ $(document).on('click', '.delete', function () {
 
 $('#ok_button').click(function () {
     $.ajax({
-        url: "barang/destroy/" + id_barang,
+        url: base_url + "barang/destroy/" + id_barang,
         beforeSend: function () {
             $('#ok_button').text('Deleting....');
         },
