@@ -44,7 +44,7 @@ class BarangController extends Controller
 	{
         // printJSON($request->status);
 		return DataTables::of(DB::table('barang')
-        ->leftjoin('kategori','kategori.id_kategori','=', 'barang.id_kategori')
+        ->join('kategori','kategori.id_kategori','=', 'barang.id_kategori')
         ->select('*')
         ->where('id_induk',1)
         ->whereNull('barang.deleted_at')
@@ -70,10 +70,10 @@ class BarangController extends Controller
     public function databarangAll(Request $request)
 	{
         if(isset($request->id_induk)){
-            $sql = DB::table('barang')->leftjoin('kategori','kategori.id_kategori','=', 'barang.id_kategori')->select('*')->where('id_induk', $request->id_induk)->whereNull('barang.deleted_at')->whereNull('barang.status')->get();
+            $sql = DB::table('barang')->join('kategori','kategori.id_kategori','=', 'barang.id_kategori')->select('*')->where('id_induk', $request->id_induk)->whereNull('barang.deleted_at')->whereNull('barang.status')->get();
 
         }else{
-            $sql = DB::table('barang')->leftjoin('kategori','kategori.id_kategori','=', 'barang.id_kategori')->select('*')->whereNull('barang.deleted_at')->whereNull('barang.status')->get();
+            $sql = DB::table('barang')->join('kategori','kategori.id_kategori','=', 'barang.id_kategori')->select('*')->whereNull('barang.deleted_at')->whereNull('barang.status')->get();
 
         }
 		return DataTables::of($sql)  
