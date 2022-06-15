@@ -10,7 +10,7 @@ $(document).ready(function () {
         "lengthChange": false,
         "filter": true,
         "bInfo": false,
-        ajax: 'datamediatanam',
+        ajax:  base_url + 'datamediatanam',
         columns: [{
                 "data": null,
                 class: 'text-center',

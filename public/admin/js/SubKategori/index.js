@@ -11,7 +11,7 @@ $(document).ready(function () {
         "lengthChange": false,
         "filter": true,
         "bInfo": false,
-        ajax: 'subkategoridata',
+        ajax:  base_url + 'subkategoridata',
         columns: [{
                 "data": null,
                 class: 'text-center',
@@ -45,7 +45,7 @@ $(document).on('click', '.deleted', function () {
         }
     });
     $.ajax({
-        url: "subKategori/destroy/" + id,
+        url:  base_url +  "subKategori/destroy/" + id,
         dataType: "json",
         success: function (data) {
             $('#ngoding').DataTable().ajax.reload();
@@ -61,7 +61,7 @@ $(document).on('click', '.edit', function () {
         }
     });    
     $.ajax({
-        url: "subKategori/edit/"+id,
+        url: base_url +  "subKategori/edit/"+id,
         dataType: "json",
         success: function (data) {
             $('#nama_subKategori').val(data.result.nama_subKategori);
@@ -77,7 +77,7 @@ $('.btn-update').on('click', function () {
     var id_subKategori = $('#id_subKategori').val();
     $.ajax({
         type: 'post',
-        url: 'subKategori/update',
+        url:  base_url + 'subKategori/update',
         dataType: 'json',
         data: {
             "_token": $('#token').val(),
@@ -101,7 +101,7 @@ $('.btn-save').on('click', function () {
     }else{
         $.ajax({
             type: 'post',
-            url: 'subKategori/store',
+            url:  base_url + 'subKategori/store',
             dataType: 'json',
             data: {
                 "_token": $('#token').val(),

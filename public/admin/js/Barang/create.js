@@ -3,7 +3,7 @@ $(document).ready(function () {
     $('.itemName').select2({
         placeholder: 'Pilih Kategori',
         ajax: {
-          url: '/select2-autocomplete-ajax',
+          url: bae_url +'select2-autocomplete-ajax',
           dataType: 'json',
           delay: 250,
           processResults: function (data) {
@@ -29,7 +29,7 @@ $(document).ready(function () {
         "lengthChange": true,
         "filter": true,
         "bInfo": false,
-        ajax: '/referensi/bankdata',
+        ajax: base_url +  'referensi/bankdata',
         columns: [{
                 "data": null,
                 "sortable": false,

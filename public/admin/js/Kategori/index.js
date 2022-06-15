@@ -16,7 +16,7 @@ $(document).ready(function () {
         "lengthChange": false,
         "filter": true,
         "bInfo": false,
-        ajax: 'dataKategori',
+        ajax:  base_url + 'dataKategori',
         columns: [{
                 "data": null,
                 class: 'text-center',
@@ -50,7 +50,7 @@ $(document).on('click', '.deleted', function () {
         }
     });
     $.ajax({
-        url: "dataKategori/destroy/" + id,
+        url:  base_url + "dataKategori/destroy/" + id,
         dataType: "json",
         success: function (data) {
             $('#ngoding').DataTable().ajax.reload();
@@ -66,7 +66,7 @@ $(document).on('click', '.edit', function () {
         }
     });    
     $.ajax({
-        url: "dataKategori/edit/"+id,
+        url:  base_url + "dataKategori/edit/"+id,
         dataType: "json",
         success: function (data) {
             $('#nama_kategori').val(data.result.nama_kategori);
@@ -82,7 +82,7 @@ $('.btn-update').on('click', function () {
     var id_kategori = $('#id_kategori').val();
     $.ajax({
         type: 'post',
-        url: 'dataKategori/update',
+        url:  base_url + 'dataKategori/update',
         dataType: 'json',
         data: {
             "_token": $('#token').val(),
@@ -111,7 +111,7 @@ $('.btn-save').on('click', function () {
 
         $.ajax({
             type: 'post',
-            url: 'dataKategori/store',
+            url:  base_url + 'dataKategori/store',
             dataType: 'json',
             data: {
                 "_token": $('#token').val(),

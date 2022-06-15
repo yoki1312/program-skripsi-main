@@ -11,7 +11,7 @@ $(document).ready(function () {
         "lengthChange": false,
         "filter": true,
         "bInfo": false,
-        ajax: 'json',
+        ajax:  base_url + 'json',
         columns: [{
                 data: 'SubModul',
                 orderable: false,
@@ -55,7 +55,7 @@ $(document).on('click', '.editNoUrut', function () {
         }
     });
     $.ajax({
-        url: "modul/editUrutan/" + id,
+        url:  base_url + "modul/editUrutan/" + id,
         dataType: "json",
         success: function (data) {
             $('#no_urut').val(data.result.no_urut);
@@ -71,7 +71,7 @@ $('.no_urut_save').on('click', function () {
     var id_modul = $('#id').val();
     $.ajax({
         type: 'post',
-        url: 'update/no_urut/modul',
+        url:  base_url + 'update/no_urut/modul',
         dataType: 'json',
         data: {
             "_token": $('#token').val(),
@@ -96,7 +96,7 @@ $(document).ready(function () {
         "lengthChange": false,
         "filter": false,
         "bInfo": false,
-        ajax: 'data_modul',
+        ajax:  base_url + 'data_modul',
         columns: [{
                 data: 'modul',
                 class: 'text-center',

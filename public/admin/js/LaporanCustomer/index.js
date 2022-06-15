@@ -10,7 +10,7 @@ $(document).ready(function () {
         "lengthChange": true,
         "filter": true,
         "bInfo": false,
-        ajax: 'customer',
+        ajax:  base_url + 'customer',
         columns: [{
                 "data": null,
                 class: 'text-center',

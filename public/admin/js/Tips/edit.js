@@ -39,7 +39,7 @@ $(document).ready(function () {
         console.log(id_tips);
         $.ajax(
             {
-                url: "/tipss/hapusGambar/"+id_tips,
+                url:  base_url + "tipss/hapusGambar/"+id_tips,
                 type: 'POST',
                 dataType: "JSON",
                 data: {

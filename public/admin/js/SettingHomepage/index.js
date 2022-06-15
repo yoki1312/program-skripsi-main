@@ -51,7 +51,7 @@ $(document).ready(function () {
       }
 
       $(document).on('click','.btn-hapus', function(){
-        axios.post('/hapus/gambar/homepage/' + this.id).then((response) => {
+        axios.post(  base_url + 'hapus/gambar/homepage/' + this.id).then((response) => {
            location.reload();
         }).catch((error) => {
             location.reload();

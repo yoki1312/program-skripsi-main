@@ -3,7 +3,7 @@ $(document).ready(function () {
     $('.itemName').select2({
         placeholder: 'Pilih Kategori',
         ajax: {
-          url: '/select2-autocomplete-ajax',
+          url: base_url +  'select2-autocomplete-ajax',
           dataType: 'json',
           delay: 250,
           processResults: function (data) {

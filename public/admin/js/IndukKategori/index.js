@@ -16,7 +16,7 @@ $(document).ready(function () {
         "lengthChange": false,
         "filter": true,
         "bInfo": false,
-        ajax: 'indukKategori',
+        ajax:  base_url + 'indukKategori',
         columns: [{
                 "data": null,
                 class: 'text-center',
@@ -50,7 +50,7 @@ $(document).on('click', '.deleted', function () {
         }
     });
     $.ajax({
-        url: "indukKategori/destroy/" + id,
+        url:  base_url + "indukKategori/destroy/" + id,
         dataType: "json",
         success: function (data) {
             $('#ngoding').DataTable().ajax.reload();
@@ -66,7 +66,7 @@ $(document).on('click', '.edit', function () {
         }
     });    
     $.ajax({
-        url: "indukKategori/edit/"+id,
+        url:  base_url + "indukKategori/edit/"+id,
         dataType: "json",
         success: function (data) {
             $('#nama_indukKategori').val(data.result.nama_indukKategori);
@@ -82,7 +82,7 @@ $('.btn-update').on('click', function () {
     var id_indukKategori = $('#id_indukKategori').val();
     $.ajax({
         type: 'post',
-        url: 'indukKategori/update',
+        url: base_url +  'indukKategori/update',
         dataType: 'json',
         data: {
             "_token": $('#token').val(),
@@ -103,7 +103,7 @@ $('.btn-save').on('click', function () {
     var nama_indukKategori = $('#nama_indukKategori').val();
     $.ajax({
         type: 'post',
-        url: 'indukKategori/store',
+        url:  base_url + 'indukKategori/store',
         dataType: 'json',
         data: {
             "_token": $('#token').val(),

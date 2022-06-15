@@ -10,7 +10,7 @@ $(document).ready(function () {
         "lengthChange": false,
         "filter": true,
         "bInfo": false,
-        ajax: 'dataJenis',
+        ajax:  base_url + 'dataJenis',
         columns: [{
                 "data": null,
                 class: 'text-center',
@@ -44,7 +44,7 @@ $(document).on('click', '.deleted', function () {
         }
     });    
     $.ajax({
-        url: "dataJenisTanaman/destroy/"+id,
+        url:  base_url + "dataJenisTanaman/destroy/"+id,
         dataType: "json",
         success: function (data) {
             $('#ngoding').DataTable().ajax.reload();
@@ -60,7 +60,7 @@ $(document).on('click', '.edit', function () {
         }
     });    
     $.ajax({
-        url: "dataJenisTanaman/edit/"+id,
+        url:  base_url + "dataJenisTanaman/edit/"+id,
         dataType: "json",
         success: function (data) {
             $('#nama_JenisTanaman').val(data.result.nama_jenisTanaman);
@@ -76,7 +76,7 @@ $('.btn-update').on('click', function () {
     var id_JenisTanaman = $('#id_JenisTanaman').val();
     $.ajax({
         type: 'post',
-        url: 'dataJenisTanaman/update',
+        url:  base_url + 'dataJenisTanaman/update',
         dataType: 'json',
         data: {
             "_token": $('#token').val(),
@@ -101,7 +101,7 @@ $('.btn-save').on('click', function () {
     }else{
         $.ajax({
             type: 'post',
-            url: 'dataJenisTanaman/store',
+            url:  base_url + 'dataJenisTanaman/store',
             dataType: 'json',
             data: {
                 "_token": $('#token').val(),

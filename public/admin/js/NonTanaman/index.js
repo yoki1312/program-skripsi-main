@@ -11,7 +11,7 @@ $(document).ready(function () {
         "lengthChange": false,
         "filter": true,
         "bInfo": false,
-        ajax: 'datanontanaman',
+        ajax: base_url + 'datanontanaman',
         columns: [
             {
                 data: 'blank',
@@ -50,7 +50,7 @@ $(document).on('click', '.delete', function () {
 
 $('#ok_button').click(function () {
     $.ajax({
-        url: "barang/destroy/" + id_barang,
+        url:  base_url + "barang/destroy/" + id_barang,
         beforeSend: function () {
             $('#ok_button').text('Deleting....');
         },

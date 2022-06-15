@@ -12,7 +12,7 @@ $(document).ready(function () {
         "lengthChange": true,
         "filter": true,
         "bInfo": false,
-        ajax: 'dataUser',
+        ajax:  base_url + 'dataUser',
         columns: [{
                 "data": null,
                 class: 'text-center',
@@ -69,7 +69,7 @@ $(document).on('click', '.deleted', function () {
     });
     $('.hps').empty();
     $('#delete_modal').modal('show');
-    $('.hps').append('<a class="btn btn-sm btn-danger" href="hapusUser/' + id + '" >Hapus</a>   <button type="button" data-dismiss="modal" class="btn-default btn-sm btn">Cancel</button>')
+    $('.hps').append('<a class="btn btn-sm btn-danger" href="' + base_url +'hapusUser/' + id + '" >Hapus</a>   <button type="button" data-dismiss="modal" class="btn-default btn-sm btn">Cancel</button>')
     // $.ajax({
     //     url: "dataJenisTanaman/destroy/" + id,
     //     dataType: "json",

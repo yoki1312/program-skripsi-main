@@ -11,7 +11,7 @@ $(document).ready(function () {
         "lengthChange": false,
         "filter": true,
         "bInfo": false,
-        ajax: 'dataTips',
+        ajax:  base_url + 'dataTips',
         columns: [{
             "data": null,
             class: 'text-center',

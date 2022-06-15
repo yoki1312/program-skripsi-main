@@ -3,7 +3,7 @@ $(document).ready(function () {
     $('.itemName').select2({
         placeholder: 'Pilih Kategori',
         ajax: {
-          url: '/select2-autocomplete-ajax',
+          url: base_url + 'select2-autocomplete-ajax',
           dataType: 'json',
           delay: 250,
           processResults: function (data) {
@@ -96,7 +96,7 @@ $(document).ready(function () {
         $(this).bootstrapSwitch('state', $(this).prop('checked'));
     });
     $(document).on('click','.hapus-foto-barang', function() {
-        axios.get('/hapus/foto/barang', {
+        axios.get( base_url +'hapus/foto/barang', {
             params: {
               id_barang: this.id
             }
