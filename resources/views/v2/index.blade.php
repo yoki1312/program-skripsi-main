@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="FooYes - Quality delivery or takeaway food">
     <meta name="author" content="Ansonika">
+    <meta name="base-url" content="{{ url('') }}">
     <title>Plantshop.id</title>
 
     <!-- Favicons-->
@@ -439,6 +440,16 @@
     <script src="{!! asset('v2/js/sticky_sidebar.min.js') !!}"></script>
     <script src="{!! asset('v2/js/specific_listing.js') !!}"></script>
     <script src="{{ asset('js/axios.js') }}"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var base_url = $('meta[name=base-url]').attr('content') + '/';
+        var asset_url = "{{ asset('') }}";
+    </script>
     <script>
         function initMap() {
             var input = document.getElementById('autocomplete');
@@ -531,7 +542,7 @@
         }
         $(document).on('click', '.remove-order', function () {
             var id = $(this).attr('data-id');
-            axios.post('/deleted-to-cart/' + id).then((response) => {
+            axios.post(base_url + 'deleted-to-cart/' + id).then((response) => {
                 getPreOrder();
             }).catch((error) => {
                 console.log(error.response.data)
