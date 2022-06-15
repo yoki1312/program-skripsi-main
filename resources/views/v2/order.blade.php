@@ -37,14 +37,14 @@
                     <!-- /head -->
                     <div class="main">
                         <div class="payment_select">
-                            <label class="container_radio">Transfer Antar Bank
+                            <label class="container_radio">Konfirmasi melalui wa
                                 <input type="radio" data-tipe="1" id="tipe-pembayaran" value="Transfer Antar Bank" checked
                                     name="payment_method">
                                 <span class="checkmark"></span>
                             </label>
                             <i class="icon_creditcard"></i>
                         </div>
-                        <div class="payment_select">
+                        <div class="payment_select" style="display:none">
                             <label class="container_radio">Transaksi Manual (WhatsApp)
                                 <input data-tipe="2" type="radio" id="tipe-pembayaran" value="Transaksi Manual" name="payment_method">
                                 <span class="checkmark"></span>
