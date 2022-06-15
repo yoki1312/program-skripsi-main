@@ -10,7 +10,7 @@ $(document).ready(function () {
         "lengthChange": true,
         "filter": true,
         "bInfo": false,
-        ajax: '/laporan/stok/tersedia',
+        ajax: base_url + 'laporan/stok/tersedia',
         columns: [{
                 "data": null,
                 class: 'text-center',
@@ -37,6 +37,6 @@ $(document).ready(function () {
             },
         ],
     });
-    
+
 
 });

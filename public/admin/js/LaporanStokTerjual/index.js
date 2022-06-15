@@ -10,7 +10,7 @@ $(document).ready(function () {
         "lengthChange": true,
         "filter": true,
         "bInfo": false,
-        ajax: '/laporan/stok/terjual',
+        ajax: base_url + 'laporan/stok/terjual',
         columns: [{
                 "data": null,
                 class: 'text-center',

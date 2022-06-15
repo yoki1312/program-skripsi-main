@@ -25,13 +25,16 @@ $(document).ready(function () {
         "filter": true,
         "bInfo": false,
         "ajax": {
-            url: 'databarang',
+            url: base_url + 'databarang',
             data: function (data) {
                 data.status = status;
             }
         },
         columns: [{
                 data: 'blank',
+                render : function(meta, row,data){
+                    return '<img src="' + asset_url + 'produk/sampul/'+ row.gambar_sampul +'" />'
+                }
             },
             {
                 data: 'nama_barang',

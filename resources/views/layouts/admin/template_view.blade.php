@@ -295,6 +295,7 @@
         });
 
         var base_url = $('meta[name=base-url]').attr('content') + '/';
+        var asset_url = "{{ asset('') }}";
         
        
         $(document).ready(function(){
