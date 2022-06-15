@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Google Font: Source Sans Pro -->
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="base-url" content="{{ url('') }}">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -43,6 +44,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
 
 </head>
 <div style="display:none">
@@ -187,7 +189,7 @@
                             @php $link = $rmd->link; @endphp
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= "/.$link" ?>" class="nav-link active">
+                                    <a href="<?= url(''). "/.$link" ?>" class="nav-link active">
                                         <i class="fa fa-dot-circle"></i>
                                         <p>{{ $rmd->SubModul}}</p>
                                     </a>
@@ -285,14 +287,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
 
     <script src="{{ asset('js/axios.js') }}"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var base_url = $('meta[name=base-url]').attr('content') + '/';
+        
+       
+        $(document).ready(function(){
+            $('.datepicker').datepicker();
+        })
+    </script>
 
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <!-- <script src="{{ asset('admin/dist/js/pages/dashboard.js') }}"></script> -->
     <!-- <script src="{{ asset('admin/js/Barang/create.js') }}"></script> -->
     <!-- <script src="{{ asset('/admin/js/<?=$controller.'/'.$method?>.js') }}"></script> -->
-
-
-    <script src='/admin/js/<?=$controller.'/'.$method?>.js'></script>
+    
+    <script src='<?= asset('') ?>admin/js/<?=$controller.'/'.$method?>.js'></script>
+    
     <script type="text/javascript" src="{{ asset('DataTables/datatables.min.js') }}"></script>
     <script>
         function notif(v) {

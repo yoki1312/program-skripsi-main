@@ -25,7 +25,7 @@ $(document).ready(function () {
         "bInfo": false,
         "select": true,
         ajax: {
-            url: 'barangAll',
+            url: base_url + 'barangAll',
             data: function (d) {
                 d.id_induk = (($('.id_induk').val() != null ? $('.id_induk').val() : null))
             }

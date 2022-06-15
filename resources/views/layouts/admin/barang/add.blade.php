@@ -52,7 +52,7 @@
                     <div class="col-md-12 col-sm-12 col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <form action="/barang/store" method="POST" autocomplete="off"
+                                <form action="{{ url('/barang/store') }}" method="POST" autocomplete="off"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <input type="text" class="id_bankdata" name="id_bankdata" hidden/>

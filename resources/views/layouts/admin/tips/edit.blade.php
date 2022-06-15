@@ -33,7 +33,7 @@
                     <div class="col-md-12 col-sm-12 col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <form action="/tipss/update" method="POST" autocomplete="off"
+                                <form action="{{ url('/tipss/update') }}" method="POST" autocomplete="off"
                                     enctype="multipart/form-data">
                                     @csrf
                                     @foreach($data as $res)

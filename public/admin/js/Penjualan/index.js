@@ -11,7 +11,7 @@ $(document).ready(function () {
         "lengthChange": false,
         "filter": true,
         "bInfo": false,
-        ajax: 'barang_sale',
+        ajax: base_url + 'barang_sale',
         columns: [{
                 "data": null,
                 class: 'text-center',
@@ -58,7 +58,7 @@ $('.btn-sale').on('click', function () {
     var stock = $('.stock').val();
     $.ajax({
         type: 'post',
-        url: 'barang/sale',
+        url: base_url + 'barang/sale',
         dataType: 'json',
         data: {
             "_token": $('#token').val(),

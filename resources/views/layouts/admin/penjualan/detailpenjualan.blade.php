@@ -24,7 +24,7 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-12">
-                        <a href="/penjualan/cetak/{{ $r->id_penjualan }}" class="btn btn-primary" target="_blank"><i class="fa fa-file"></i> CETAK
+                        <a href="{{ url('/penjualan/cetak/'.$r->id_penjualan) }}" class="btn btn-primary" target="_blank"><i class="fa fa-file"></i> CETAK
                             PDF</a>
                     </div>
                 </div>

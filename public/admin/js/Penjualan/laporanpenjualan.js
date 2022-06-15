@@ -1,6 +1,7 @@
 let table;
 $(document).ready(function () {
-
+    console.log(base_url);
+    console.log('s');
     let table = $('#ngoding').DataTable({
         "searching": true,
         "autoWidth": true,
@@ -11,7 +12,7 @@ $(document).ready(function () {
         "lengthChange": true,
         "filter": true,
         "bInfo": false,
-        ajax: 'datap',
+        ajax: base_url + 'datap',
         columns: [{
                 "data": null,
                 "sortable": false,
@@ -59,7 +60,7 @@ $(document).on('click', '.delete', function () {
 $(document).on('change', '.status', function () {
     var id_penjualan = $(this).closest('tr').find('.id_penjualan').val();
     var id = this.value;
-    axios.get('/update/status/bayar', {
+    axios.get( base_url +  'update/status/bayar', {
             params: {
                 status: id,
                 id_penjualan: id_penjualan
@@ -83,7 +84,7 @@ $(document).on('change', '.status', function () {
 
 $('#ok_button').click(function () {
     $.ajax({
-        url: "barang/destroy/" + id_barang,
+        url: base_url +  "barang/destroy/" + id_barang,
         beforeSend: function () {
             $('#ok_button').text('Deleting....');
         },
@@ -98,10 +99,11 @@ $('#ok_button').click(function () {
 });
 
 function statusPembayaran() {
+  
     $('.status').select2({
         placeholder: 'Pilih Status',
         ajax: {
-            url: '/status/bayar',
+            url: base_url + 'status/bayar',
             dataType: 'json',
             delay: 250,
             processResults: function (data) {

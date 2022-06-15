@@ -7,3 +7,4 @@ public/.DS_Store
 .env
 vendor
 config/services.php
+public/.htaccess
