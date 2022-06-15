@@ -543,7 +543,7 @@
         });
         $(".logout").click(function () {
             axios.post("{{ url('/logout') }}")
-                .then(() => location.href = '/index')
+                .then(() => location.href = "{{ url('/')  }}")
         });
 
     </script>
