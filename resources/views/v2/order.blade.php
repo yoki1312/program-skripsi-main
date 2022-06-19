@@ -44,7 +44,7 @@
                             </label>
                             <i class="icon_creditcard"></i>
                         </div>
-                        <div class="payment_select" style="display:none">
+                        <div class="payment_select" >
                             <label class="container_radio">Transaksi Manual (WhatsApp)
                                 <input data-tipe="2" type="radio" id="tipe-pembayaran" value="Transaksi Manual" name="payment_method">
                                 <span class="checkmark"></span>
@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                             <a class="btn_1 gradient full-width mb_5 order btn-bayar btn-tf">Bayar Sekarang</a>
-                            <!-- <a style="display:none" target="_blank" href="https://wa.me/6285730982703?text=Konfirmasi%20pembelian%20{{ Auth::user()->name }}%20" class="btn_1 gradient full-width mb_5 btn-wa">Konfirmasi Whatsaap</a> -->
+                            <button style="display:none" class="btn_1 gradient full-width mb_5 btn-transfer">Konfirmasi Whatsaap</button>
                         </div>
                     </div>
                 </div>
@@ -173,7 +173,7 @@
                     }).then((response) => {
                         var data = response.data;
                         console.log(response)
-                        window.open('https://wa.me/6285730982703?text=Konfirmasi%20pembelian%20no-transaksi%20"'+ response.data +'"');
+                        window.open('https://wa.me/6285730982703?text=Konfirmasi%20pembelian%20no-transaksi%20"'+ response.data.no_invoice +'"');
 
                         // window.open(data.payment_url)
                     }).catch((error) => {
