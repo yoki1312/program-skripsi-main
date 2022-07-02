@@ -44,7 +44,7 @@
                             </label>
                             <i class="icon_creditcard"></i>
                         </div>
-                        <div class="payment_select" >
+                        <div class="payment_select" style="display:none" >
                             <label class="container_radio">Transaksi Manual (WhatsApp)
                                 <input data-tipe="2" type="radio" id="tipe-pembayaran" value="Transaksi Manual" name="payment_method">
                                 <span class="checkmark"></span>
