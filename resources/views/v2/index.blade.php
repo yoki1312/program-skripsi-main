@@ -8,7 +8,7 @@
     <meta name="description" content="FooYes - Quality delivery or takeaway food">
     <meta name="author" content="Ansonika">
     <meta name="base-url" content="{{ url('') }}">
-    <title>Plantshop.id</title>
+    <title>Mallino.com</title>
 
     <!-- Favicons-->
     <link rel="shortcut icon" href="{!! asset('v2/img/favicon.ico') !!}" type="image/x-icon">
@@ -127,7 +127,7 @@
         <div class="container">
             <div id="logo">
                 <a href="{{ url('index') }}">
-                    <img src="{!! asset('v2/img/logo.png')!!}" width="162" height="35" alt="">
+                    <img src="{!! asset('v2/img/logo.png')!!}" width="190" height="50" alt="">
                 </a>
             </div>
             @if(isset(Auth::user()->id))
