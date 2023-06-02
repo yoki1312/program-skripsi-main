@@ -15,7 +15,7 @@
                             <div class="col-lg-10">
                                 <div class="form-group">
                                     <input name="nama_tanaman" class="form-control no_border_r" type="text"
-                                        placeholder="Nama Tanaman">
+                                        placeholder="Nama Barang ">
                                 </div>
                             </div>
                             <div class="col-lg-2">
