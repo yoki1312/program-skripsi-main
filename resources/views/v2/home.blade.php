@@ -1,8 +1,7 @@
 @extends('v2.index')
 @section('konten_area')
 <main>
-<div class="hero_single version_1"
-    style="background: #9cddb0 url(v2/img/bg-01.jpg);  background-position:center; background-repeat:no-repeat; background-size: cover;">
+<div class="hero_single version_1" style="background: #9cddb0 url(v2/img/bg-01.jpg);  background-position:center; background-repeat:no-repeat; background-size: cover ; background-color:rgba(0, 0, 0, 0.5)">
     <div class="opacity-mask">
         <div class="container">
             <div class="row">
