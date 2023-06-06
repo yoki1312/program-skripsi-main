@@ -66,7 +66,7 @@
         <div class="main_title">
             <span><em></em></span>
             <h2>Daftar Barang </h2>
-            <p>Barang palin populer.</p>
+            <p>Barang paling populer.</p>
             <a href="{{ url('produk-v2') }}">Lihat semua &rarr;</a>
         </div>
         <div class="row add_bottom_25">
