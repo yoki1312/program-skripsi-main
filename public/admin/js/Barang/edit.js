@@ -20,17 +20,17 @@ $(document).ready(function () {
         }
       });
     
-    let table = $('#sbdata').DataTable({
-        "searching": true,
-        "autoWidth": true,
-        "responsive": true,
-        "processing": true,
-        "serverSide": false,
-        "paginate": true,
-        "lengthChange": true,
-        "filter": true,
-        "bInfo": false,
-    });
+    // let table = $('#sbdata').DataTable({
+    //     "searching": true,
+    //     "autoWidth": true,
+    //     "responsive": true,
+    //     "processing": true,
+    //     "serverSide": false,
+    //     "paginate": true,
+    //     "lengthChange": true,
+    //     "filter": true,
+    //     "bInfo": false,
+    // });
     $('#sbdata tbody').on('click', 'td', function () {
         var data = table.row( $(this).parents('tr') ).data();
         let v = $('#id_kategori').val();
