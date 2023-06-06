@@ -61,31 +61,16 @@
                                             <div class="card card-default">
                                                 <div class="card-header ">
                                                     <div class="row">
-                                                        <div class="col-lg-6 col-sm-12">
+                                                        <div class="col-lg-6 col-sm-12 form-group">
                                                             <div class="row">
-                                                                <div class="col-lg-8 col-sm-8">
-                                                                    <label>Nama Tanaman</label>
+                                                                <div class="col-lg-12 col-sm-12 form-group">
+                                                                    <label>Nama Barang</label>
                                                                     <input type="text" name="nama" id="nama_tanaman"
                                                                         class="form-control form-control-sm">
                                                                     <input hidden type="text" id="id_kategori"
                                                                         class="form-control form-control-sm">
                                                                 </div>
-                                                                <div class="col-lg-4 col-sm-4">
-                                                                    <label>&nbsp;</label>
-                                                                    <button type="button"
-                                                                        class="btn btn-primary btn-sm form-control form-control-sm"
-                                                                        data-toggle="modal"
-                                                                        data-target=".bd-example-modal-lg"><i
-                                                                            class="fa fa-search" aria-hidden="true"></i>
-                                                                        Bank Data</button>
-                                                                </div>
-                                                                <div class="col-lg-8 col-sm-8">
-                                                                    <label>Nama Latin</label>
-                                                                    <input type="text" name="nama_latin" id="nama_latin"
-                                                                        class="form-control form-control-sm">
-                                                                </div>
-
-                                                                <div class="col-lg-6 col-sm-6">
+                                                                <div class="col-lg-6 col-sm-6 form-group">
                                                                     <label class="form-label">Kategori</label>
                                                                     <select class="select2 form-control form-control-sm"
                                                                         style="width:100%;" name="id_kategori">
@@ -97,19 +82,8 @@
                                                                         @endforeach
                                                                     </select>
                                                                 </div>
-                                                                <div class="col-lg-6 col-sm-6">
-                                                                    <label class="form-label">Sub Kategori</label>
-                                                                    <select class="select2 form-control form-control-sm"
-                                                                        style="width:100%;" name="id_subKategori">
-                                                                        <option value="" selected disabled>Pilih Sub
-                                                                            Kategori</option>
-                                                                        @foreach($subkategori as $s)
-                                                                        <option value="{{ $s->id_subKategori }}">
-                                                                            {{ $s->nama_subKategori }}</option>
-                                                                        @endforeach
-                                                                    </select>
-                                                                </div>
-                                                                <div class="col-lg-6 col-sm-12">
+                                                                
+                                                                <div class="col-lg-6 col-sm-12 form-group">
                                                                     <label>Harga Beli</label>
                                                                     <div class="input-group mb-2">
                                                                         <div class="input-group-prepend">
@@ -123,7 +97,7 @@
 
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-lg-6 col-sm-12">
+                                                                <div class="col-lg-6 col-sm-12 form-group">
                                                                     <label>Harga Jual</label>
                                                                     <div class="input-group mb-2">
                                                                         <div class="input-group-prepend">
@@ -137,7 +111,7 @@
 
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-lg-6 col-sm-12">
+                                                                <div class="col-lg-6 col-sm-12 form-group">
                                                                     <label>Harga Reseler</label>
                                                                     <div class="input-group mb-2">
                                                                         <div class="input-group-prepend">
@@ -151,7 +125,7 @@
 
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-lg-6 col-sm-12">
+                                                                <div class="col-lg-6 col-sm-12 form-group">
                                                                     <label>Harga Satuan</label>
                                                                     <div class="input-group mb-2">
                                                                         <div class="input-group-prepend">
@@ -165,12 +139,7 @@
 
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-lg-6 col-sm-6">
-                                                                    <label>Berat</label><br>
-                                                                    <input type="text" name="berat"
-                                                                        class="form-control form-control-sm">
-
-                                                                </div>
+                                                                 
                                                                 <div class="col-lg-6 col-sm-6">
                                                                     <label>Diskon <input type="checkbox"
                                                                             id="trigger"></label><br>
@@ -187,36 +156,7 @@
                                                                     </div>
 
                                                                 </div>
-                                                                <div class="col-lg-12 mb-12">
-                                                                    <label
-                                                                        for="validationDefaultUsername">Ukuran</label>
-                                                                    <div class="input-group">
-                                                                        <div class="input-group-prepend">
-                                                                            <span
-                                                                                class="input-group-text form-control form-control-sm"
-                                                                                id="inputGroupPrepend2">P</span>
-                                                                        </div>
-                                                                        <input value="0" name=panjang type="number"
-                                                                            class="form-control form-control-sm"
-                                                                            required>
-                                                                        <div class="input-group-prepend">
-                                                                            <span
-                                                                                class="input-group-text form-control form-control-sm"
-                                                                                id="inputGroupPrepend2">L</span>
-                                                                        </div>
-                                                                        <input value="0" name="lebar" type="number"
-                                                                            class="form-control form-control-sm"
-                                                                            required>
-                                                                        <div class="input-group-prepend">
-                                                                            <span
-                                                                                class="input-group-text form-control form-control-sm"
-                                                                                id="inputGroupPrepend2">T</span>
-                                                                        </div>
-                                                                        <input name="tinggi" value="0" type="number"
-                                                                            class="form-control form-control-sm"
-                                                                            required>
-                                                                    </div>
-                                                                </div>
+                                                                 
                                                             </div>
                                                         </div>
 
@@ -227,53 +167,7 @@
                                                                Keterangan
                                                             </textarea>
                                                             </div>
-                                                            <div class="row data-bank" style="display:none">
-
-                                                                <div class="col-4">
-                                                                    <label>Kebutuhan Air</label><br>
-                                                                    <input readonly type="text"
-                                                                        class="form-control form-control-sm bankdata-kebutuhan-air" />
-                                                                </div>
-                                                                <div class="col-4">
-                                                                    <label>Kebutuhan Cahaya</label><br>
-                                                                    <input readonly type="text"
-                                                                        class="form-control form-control-sm bankdata-kebutuhan-cahaya" />
-                                                                </div>
-                                                                <div class="col-4">
-                                                                    <label>Cara Perawatan</label><br>
-                                                                    <input readonly type="text"
-                                                                        class="form-control form-control-sm bankdata-cara-perawatan" />
-
-                                                                </div>
-                                                                <div class="col-lg-6 col-sm-12">
-                                                                    <label>Harga Min</label>
-                                                                    <div class="input-group mb-2">
-                                                                        <div class="input-group-prepend">
-                                                                            <div class="form-control form-control-sm "
-                                                                                class="input-group-text">Rp</div>
-                                                                        </div>
-                                                                        <input readonly 
-                                                                            data-inputmask="'alias': 'currency', 'prefix': ''"
-                                                                            type="text"
-                                                                            class="rupiah form-control form-control-sm bankdata-hargaMin">
-
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-6 col-sm-12">
-                                                                    <label>Harga Max</label>
-                                                                    <div class="input-group mb-2">
-                                                                        <div class="input-group-prepend">
-                                                                            <div class="form-control form-control-sm "
-                                                                                class="input-group-text">Rp</div>
-                                                                        </div>
-                                                                        <input readonly
-                                                                            data-inputmask="'alias': 'currency', 'prefix': ''"
-                                                                            type="text"
-                                                                            class="rupiah form-control form-control-sm bankdata-hargaMax">
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                            < 
 
 
                                                         </div>

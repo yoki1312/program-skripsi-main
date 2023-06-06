@@ -61,17 +61,7 @@
                                                                         @endforeach
                                                                     </select>
                                                                 </div>
-                                                                <div class="col-lg-6 col-sm-6">
-                                                                    <label class="form-label">Sub Kategori</label>
-                                                                    <select class="select2 form-control form-control-sm"
-                                                                        style="width:100%;" name="id_subKategori">
-                                                                        <option value="{{ $res->id_subKategori }}" selected >{{ $res->nama_subKategori }}</option>
-                                                                        @foreach($subkategori as $s)
-                                                                        <option value="{{ $s->id_subKategori }}">
-                                                                            {{ $s->nama_subKategori }}</option>
-                                                                        @endforeach
-                                                                    </select>
-                                                                </div>
+                                                                 
                                                                 <div class="col-lg-6 col-sm-12">
                                                                     <label>Harga Awal</label>
                                                                     <div class="input-group mb-2">
@@ -115,26 +105,7 @@
 
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-lg-6 col-sm-12">
-                                                                    <label>Harga Personal</label>
-                                                                    <div class="input-group mb-2">
-                                                                        <div class="input-group-prepend">
-                                                                            <div class="form-control form-control-sm"
-                                                                                class="input-group-text">Rp</div>
-                                                                        </div>
-                                                                        <input name="hargaPersonal"
-                                                                            data-inputmask="'alias': 'currency', 'prefix': ''"
-                                                                            type="text"
-                                                                            class="rupiah form-control form-control-sm" value="{{ $res->hargaPersonal }}">
-
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-6 col-sm-6">
-                                                                    <label>Berat</label><br>
-                                                                    <input type="text" name="berat"
-                                                                        class="form-control form-control-sm" value="{{ $res->berat }}">
-
-                                                                </div>
+                                                                 
                                                                 <div class="col-lg-6 col-sm-6">
                                                                     <label>Diskon </label><br>
                                                                     <div class="input-group">
@@ -150,36 +121,7 @@
                                                                     </div>
 
                                                                 </div>
-                                                                <div class="col-lg-12 mb-12">
-                                                                    <label
-                                                                        for="validationDefaultUsername">Ukuran</label>
-                                                                    <div class="input-group">
-                                                                        <div class="input-group-prepend">
-                                                                            <span
-                                                                                class="input-group-text form-control form-control-sm"
-                                                                                id="inputGroupPrepend2">P</span>
-                                                                        </div>
-                                                                        <input value="{{ $res->panjang }}" name=panjang type="number"
-                                                                            class="form-control form-control-sm"
-                                                                            required>
-                                                                        <div class="input-group-prepend">
-                                                                            <span
-                                                                                class="input-group-text form-control form-control-sm"
-                                                                                id="inputGroupPrepend2">L</span>
-                                                                        </div>
-                                                                        <input value="{{ $res->lebar }}" name="lebar" type="number"
-                                                                            class="form-control form-control-sm"
-                                                                            required>
-                                                                        <div class="input-group-prepend">
-                                                                            <span
-                                                                                class="input-group-text form-control form-control-sm"
-                                                                                id="inputGroupPrepend2">T</span>
-                                                                        </div>
-                                                                        <input name="tinggi" value="{{ $res->tinggi }}" type="number"
-                                                                            class="form-control form-control-sm"
-                                                                            required>
-                                                                    </div>
-                                                                </div>
+                                                                 
                                                             </div>
                                                         </div>
 
@@ -269,7 +211,7 @@
                                     <br>
 
                                     <a href="{{ url('barang') }}" type="button" class="btn btn-sm btn-danger"><i
-                                            class="fa fa-ban" aria-hidden="true"></i> Cancel</a>
+                                            class="fa fa-ban" aria-hidden="true"></i> Kembali</a>
                                     <button class="btn btn-sm btn-success" type="submit"><i class="fa fa-floppy-o"
                                             aria-hidden="true"></i>
                                         Simpan</button>
