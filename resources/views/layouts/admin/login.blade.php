@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Login Plantshop.id</title>
+    <title>Login Mallindo</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -42,7 +42,7 @@
                 <form class="login100-form validate-form" action="{{ url('loginAdminPlant') }}" method="post">
                     @csrf
                     <span class="login100-form-title p-b-43">
-                        Login Plantshop.id 
+                    Login Mallindo 
                         @if(isset($validator))
                         {{ $validator }}
                         @endif
@@ -85,7 +85,7 @@
                     </div>
                 </form>
 
-                <div class="login100-more" style="background-image: url('admin/login/images/bg-01.jpg');">
+                <div class="login100-more" style="background-image: url('admin/login/images/login-01.jpg'); background-size: 70%;">
                 </div>
             </div>
         </div>
