@@ -74,24 +74,25 @@
                                 <li>Total Berat Barang<span id="berat-barang">0 Kg</span></li>
                             </ul>
                             <div class="row">
-                                <div class="col-sm-12">
+                                <div class="col-sm-12 form-group">
                                     <label>Kurir Expedisi</label>
                                     <select class="expedisi form-control" name="cari">
                                         <option value="">Pilih Expedisi</option>
                                         <option value="jne">Jne</option>
                                         <option value="pos">Pos Indonesia</option>
                                         <option value="tiki">Tiki</option>
+                                        <option value="ninja">Ninja Expres</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-12">
+                                <div class="col-sm-12 form-group">
                                     <label>Provinsi Tujuan</label>
                                     <select class="provinsi form-control" name="cari"></select>
                                 </div>
-                                <div class="col-sm-12">
+                                <div class="col-sm-12 form-group">
                                     <label>Kota Tujuan</label>
                                     <select class="kabupaten form-control" name="cari"></select>
                                 </div>
-                                <div class="col-sm-12">
+                                <div class="col-sm-12 form-group">
                                     <label>Detail Expedisi </label>
                                     <table class="table table-sm table-striped table-bordered " id="dt-expedisi">
                                         <thead>

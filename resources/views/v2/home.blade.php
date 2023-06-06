@@ -33,7 +33,7 @@
 </div>
 <!-- /hero_single -->
 
-<div class="container margin_30_60">
+<div class="container margin_30_60" style="display: none;">
     <div class="main_title center">
         <span><em></em></span>
         <h2>Kategori</h2>
