@@ -19,13 +19,13 @@ class SubKategoriController extends Controller
     public function index()
     {
         
-        return view('layouts.admin.subkategori.view');
+        return view('layouts.admin.subKategori.view');
     }
     public function dataKategori(){
         return DataTables::of(SubKategori::all())
             ->addColumn('action', function($data){
-                $button = '<button type="button" name="edit" id="'.$data->id_subkategori.'" class="edit btn btn-primary btn-sm"> <i class="fa fa-edit"></i></button>';
-                $button .= '&nbsp;&nbsp;&nbsp;<button type="button" id="'.$data->id_subkategori.'" class="deleted btn btn-danger btn-sm"> <i class="fa fa-trash"></i></button>';
+                $button = '<button type="button" name="edit" id="'.$data->id_subKategori.'" class="edit btn btn-primary btn-sm"> <i class="fa fa-edit"></i></button>';
+                $button .= '&nbsp;&nbsp;&nbsp;<button type="button" id="'.$data->id_subKategori.'" class="deleted btn btn-danger btn-sm"> <i class="fa fa-trash"></i></button>';
                 return $button;
                 })
             ->rawColumns(['action'])

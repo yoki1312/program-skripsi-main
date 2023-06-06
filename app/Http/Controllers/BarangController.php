@@ -199,9 +199,9 @@ class BarangController extends Controller
         $kategori = Kategori::all();
         $barang = DB::table('barang')
         ->leftjoin('kategori','kategori.id_kategori','=', 'barang.id_kategori')
-        ->leftjoin('subKategori','subkategori.id_subKategori','=', 'barang.id_subKategori')
+        ->leftjoin('subKategori','subKategori.id_subKategori','=', 'barang.id_subKategori')
         ->leftjoin('bankdata','bankdata.id_bankdata','=', 'barang.id_bankdata')
-        ->select('barang.*','kategori.nama_kategori','subkategori.nama_subKategori', 'bankdata.*')
+        ->select('barang.*','kategori.nama_kategori','subKategori.nama_subKategori', 'bankdata.*')
         ->where('barang.id_barang',$id)
         ->get();
         $barang_detail = DetailBarang::where('id_barang',$id)->whereNull('deleted_at')->get();
@@ -223,8 +223,8 @@ class BarangController extends Controller
         $kategori = Kategori::all();
         $barang = DB::table('barang')
         ->leftjoin('kategori','kategori.id_kategori','=', 'barang.id_kategori')
-        ->leftjoin('subKategori','subkategori.id_subKategori','=', 'barang.id_subKategori')
-        ->select('barang.*','kategori.nama_kategori','subkategori.nama_subKategori')
+        ->leftjoin('subKategori','subKategori.id_subKategori','=', 'barang.id_subKategori')
+        ->select('barang.*','kategori.nama_kategori','subKategori.nama_subKategori')
         ->where('barang.id_barang',$id)
         ->get();
         $barang_detail = DetailBarang::where('id_barang',$id)->whereNull('deleted_at')->get();

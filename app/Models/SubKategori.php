@@ -10,6 +10,6 @@ class SubKategori extends Model
     use HasFactory;
     
     protected $guarded = [];
-    protected $table ='subkategori';
+    protected $table ='subKategori';
     protected $primaryKey ='id_subKategori';
 }
