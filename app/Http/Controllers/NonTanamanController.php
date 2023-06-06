@@ -152,7 +152,7 @@ class NonTanamanController extends Controller
         $subkategori = SubKategori::all();
         $res = DB::table('barang')
         ->leftjoin('induk_kategori','induk_kategori.id_indukKategori','=', 'barang.id_kategori')
-        ->leftjoin('subKategori','subKategori.id_subKategori','=', 'barang.id_subKategori')
+        ->leftjoin('subKategori','subkategori.id_subKategori','=', 'barang.id_subKategori')
         ->select('*')
         ->where('id_barang',$id)
         ->first();
