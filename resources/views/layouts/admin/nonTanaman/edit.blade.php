@@ -77,7 +77,7 @@
                                                                     <div class="input-group mb-2">
                                                                         <div class="input-group-prepend">
                                                                             <div class="form-control form-control-sm"
-                                                                                class="input-group-text">Rp</div>
+                                                                                class="input-group-text">Rm</div>
                                                                         </div>
                                                                         <input value="{{ $res->hargaAwal }}" name="hargaAwal"
                                                                             data-inputmask="'alias': 'currency', 'prefix': ''"
@@ -91,7 +91,7 @@
                                                                     <div class="input-group mb-2">
                                                                         <div class="input-group-prepend">
                                                                             <div class="form-control form-control-sm"
-                                                                                class="input-group-text">Rp</div>
+                                                                                class="input-group-text">Rm</div>
                                                                         </div>
                                                                         <input value="{{ $res->hargaJual }}" name="hargaJual"
                                                                             data-inputmask="'alias': 'currency', 'prefix': ''"

@@ -101,7 +101,7 @@
                                                                     <div class="input-group mb-2">
                                                                         <div class="input-group-prepend">
                                                                             <div class="form-control form-control-sm"
-                                                                                class="input-group-text">Rp</div>
+                                                                                class="input-group-text">Rm</div>
                                                                         </div>
                                                                         <input value="{{ $bankdata->hargaMin }}"
                                                                             name="hargaMin"
@@ -116,7 +116,7 @@
                                                                     <div class="input-group mb-2">
                                                                         <div class="input-group-prepend">
                                                                             <div class="form-control form-control-sm"
-                                                                                class="input-group-text">Rp</div>
+                                                                                class="input-group-text">Rm</div>
                                                                         </div>
                                                                         <input value="{{ $bankdata->hargaMax }}"
                                                                             name="hargaMax"
