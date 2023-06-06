@@ -308,7 +308,7 @@
     <!-- <script src="{{ asset('admin/js/Barang/create.js') }}"></script> -->
     <!-- <script src="{{ asset('/admin/js/<?=$controller.'/'.$method?>.js') }}"></script> -->
     
-    <script src='<?= asset('') ?>admin/js/<?=$controller.'/'.$method?>.js'></script>
+    <script src='<?= asset('') ?>admin/js/<?=$controller.'/'.$method?>.js?id=sajdkashjdkas'></script>
     
     <script type="text/javascript" src="{{ asset('DataTables/datatables.min.js') }}"></script>
     <script>
