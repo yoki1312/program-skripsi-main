@@ -65,8 +65,8 @@
     <div class="container margin_60_40">
         <div class="main_title">
             <span><em></em></span>
-            <h2>Daftar Tanaman </h2>
-            <p>Tanaman pembelian terbanyak.</p>
+            <h2>Daftar Barang </h2>
+            <p>Barang palin populer.</p>
             <a href="{{ url('produk-v2') }}">Lihat semua &rarr;</a>
         </div>
         <div class="row add_bottom_25">
