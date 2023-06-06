@@ -127,7 +127,7 @@
         <div class="container">
             <div id="logo">
                 <a href="{{ url('index') }}">
-                    <img src="{!! asset('v2/img/logo.png')!!}" width="190" height="50" alt="">
+                    <img src="{!! asset('v2/img/logos.png')!!}" width="190" height="50" alt="">
                 </a>
             </div>
             @if(isset(Auth::user()->id))
