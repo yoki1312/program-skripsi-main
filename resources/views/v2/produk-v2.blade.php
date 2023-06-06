@@ -122,7 +122,7 @@
 
             <div class="col-lg-9">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 d-none" >
                         <h2 class="title_small">Top Categories</h2>
                         <div class="owl-carousel owl-theme categories_carousel_in listing owl-loaded owl-drag">
                             <div class="owl-stage-outer">
