@@ -19,43 +19,43 @@ $(document).ready(function () {
           cache: true
         }
       });
-    let table = $('#sbdata').DataTable({
-        "searching": true,
-        "autoWidth": true,
-        "responsive": true,
-        "processing": true,
-        "serverSide": false,
-        "paginate": true,
-        "lengthChange": true,
-        "filter": true,
-        "bInfo": false,
-        ajax: base_url +  'referensi/bankdata',
-        columns: [{
-                "data": null,
-                "sortable": false,
-                class:'text-center',
-                render: function (data, type, row, meta) {
-                    return meta.row + meta.settings._iDisplayStart + 1;
-                }
-            },
-            {
-                data: 'nama_tanaman',class:'text-center'
-            },
-            {
-                data: 'nama_latin',
-                class: 'text-center',
-            },
+    // let table = $('#sbdata').DataTable({
+    //     "searching": true,
+    //     "autoWidth": true,
+    //     "responsive": true,
+    //     "processing": true,
+    //     "serverSide": false,
+    //     "paginate": true,
+    //     "lengthChange": true,
+    //     "filter": true,
+    //     "bInfo": false,
+    //     ajax: base_url +  'referensi/bankdata',
+    //     columns: [{
+    //             "data": null,
+    //             "sortable": false,
+    //             class:'text-center',
+    //             render: function (data, type, row, meta) {
+    //                 return meta.row + meta.settings._iDisplayStart + 1;
+    //             }
+    //         },
+    //         {
+    //             data: 'nama_tanaman',class:'text-center'
+    //         },
+    //         {
+    //             data: 'nama_latin',
+    //             class: 'text-center',
+    //         },
          
-            {
-                data: 'nama_kategori',
-                class: 'text-center',
-            },
-            {
-                data: 'nama_jenisTanaman',
-                class: 'text-center',
-            }
-        ],
-    });
+    //         {
+    //             data: 'nama_kategori',
+    //             class: 'text-center',
+    //         },
+    //         {
+    //             data: 'nama_jenisTanaman',
+    //             class: 'text-center',
+    //         }
+    //     ],
+    // });
     $('#sbdata tbody').on('click', 'td', function () {
         var data = table.row( $(this).parents('tr') ).data();
         console.log(data);
