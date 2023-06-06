@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-7 col-lg-8">
-                    <h1>Mallindo.com</h1>
+                    <h1>MALLINDO.MY</h1>
                     <p>Groceries and Retail</p>
                     <form method="post" action="{{ url('cari/produk-v2') }}">
                         @csrf
