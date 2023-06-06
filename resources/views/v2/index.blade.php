@@ -8,7 +8,7 @@
     <meta name="description" content="FooYes - Quality delivery or takeaway food">
     <meta name="author" content="Ansonika">
     <meta name="base-url" content="{{ url('') }}">
-    <title>Mallino.com</title>
+    <title>MALLINDO.MY</title>
 
     <!-- Favicons-->
     <link rel="shortcut icon" href="{!! asset('v2/img/favicon.ico') !!}" type="image/x-icon">
