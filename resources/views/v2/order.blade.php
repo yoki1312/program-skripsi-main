@@ -37,7 +37,7 @@
                     <!-- /head -->
                     <div class="main">
                         <div class="payment_select">
-                            <label class="container_radio">Konfirmasi melalui wa
+                            <label class="container_radio">Rekening 7081268987 a/n MALLINDO GLOBAL NETWORK <br>BANK OCBC MALAYSIA
                                 <input type="radio" data-tipe="1" id="tipe-pembayaran" value="Transfer Antar Bank" checked
                                     name="payment_method">
                                 <span class="checkmark"></span>

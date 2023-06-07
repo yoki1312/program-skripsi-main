@@ -121,6 +121,10 @@
         </nav>
         <div class="container margin_detail">
             <div class="card">
+                <div class="card-header">
+                    <p>No Rekening : 7081268987 a/n MALLINDO GLOBAL NETWORK</p>
+                    <p>BANK OCBC MALAYSIA</p>
+                </div>
                 <div class="card-body">
 
                     <div id="collapseOne" class="row collapse show" aria-labelledby="headingOne"
