@@ -103,7 +103,7 @@
 
     <!-- BASE CSS -->
     <link href="{!! asset('v2/css/bootstrap_customized.min.css') !!}" rel="stylesheet">
-    <link href="{!! asset('v2/css/style.css') !!}" rel="stylesheet">
+    <link href="{!! asset('v2/css/style.css?id=sfnsdfsdf') !!}" rel="stylesheet">
 
     <!-- SPECIFIC CSS -->
     <link href="{!! asset('v2/css/home.css') !!}" rel="stylesheet">
