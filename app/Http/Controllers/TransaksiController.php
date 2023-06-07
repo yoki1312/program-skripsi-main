@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PenjualanBarang;
 use Illuminate\Http\Request;
 use DB;
 use Auth;
+use Session;
 class TransaksiController extends Controller
 {
     /**
@@ -19,10 +21,7 @@ class TransaksiController extends Controller
         te.keterangan,
         tf.no_resi,
         tf.id_ongkir,
-    CASE
-            WHEN ta.id_status_penjualan = '1' THEN 'Menunggu Konfirmasi' 
-            WHEN ta.id_status_penjualan = '2' && tf.no_resi != 0 THEN 'Barang Dikirim' ELSE 'Barang Diproses' 
-    END AS status_transaksi,
+        te.keterangan as status_transaksi,
         ta.*,
         CONCAT( '[', GROUP_CONCAT( json_object( 'nama_barang', tc.nama_barang, 'harga', tc.hargaAwal, 'kategori', td.nama_kategori , 'gambar_sampul',tc.gambar_sampul)), ']' ) AS detail_barang 
     FROM
@@ -71,6 +70,8 @@ class TransaksiController extends Controller
         //
     }
 
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -80,6 +81,24 @@ class TransaksiController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    public function uploadBukti(Request $request)
+    {
+         //mengambil data file yang diupload
+         $file           = $request->file('foto_pembayaran'); 
+         $nama_file      = $file->getClientOriginalName(); 
+         $file->move('bukti_pembayaran',$file->getClientOriginalName());
+
+        PenjualanBarang::where('id_penjualan', $request->id_penjualan)->update([
+            'file_pembayaran' => $nama_file,
+            'id_status_penjualan' => 7
+        ]);
+
+        Session::flash('success','Upload bukti berhasil');
+        return redirect('transaksi-v2');
+
+
     }
 
     /**

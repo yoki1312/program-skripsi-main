@@ -156,7 +156,7 @@ class PenjualanController extends Controller
         $penjualan->id_users = Auth::user()->id;
         $penjualan->tgl_penjualan = date('Y-m-d');
         $penjualan->no_invoice = $kode;
-        $penjualan->id_status_penjualan = 0;
+        $penjualan->id_status_penjualan = 6;
         $penjualan->save();
         $id_penjualan = $penjualan->id;
         //end
@@ -377,13 +377,14 @@ class PenjualanController extends Controller
 
     public function statusBayar(Request $request)
     {
-        printJSON($request->all());
+       
         PenjualanBarang::where('id_penjualan', $request->id_penjualan)->update(array('id_status_penjualan' => $request->status));
         $dd = DetailPenjualan::where('id_penjualan', $request->id_penjualan)->get();
-        foreach($dd as $t){
-            $user = Auth::user()->id;
-            $sql = "DELETE FROM temporary_order WHERE id_barang = '$t->id_barang' and id_user = '$user' ";
-            DB::select($sql);
+
+        $userBeli = PenjualanBarang::where('id_penjualan', $request->id_penjualan)->first();
+
+        foreach($dd as $t){ 
+            DB::table('temporary_order')->where('id_barang', $t->id_barang)->where('id_user', $userBeli->id_users)->delete();
             Barang::where('id_barang', $t->id_barang)->update(array('status' => '1'));
 
         }

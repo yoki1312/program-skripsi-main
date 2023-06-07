@@ -2,7 +2,8 @@ let table;
 $(document).ready(function () {
     console.log(base_url);
     console.log('s');
-    let table = $('#ngoding').DataTable({
+    
+    table = $('#ngoding').DataTable({
         "searching": true,
         "autoWidth": true,
         "responsive": true,
@@ -30,6 +31,14 @@ $(document).ready(function () {
                 class: 'text-center',
                 render: function (data, type, row) {
                     return data + '<input hidden type="text" value="' + row.id_penjualan + '" class="id_penjualan" />'
+                }
+            },
+            {
+                data: 'no_invoice',
+                class: 'text-center',
+                render: function (data, type, row) {
+                    let path = asset_url + "bukti_pembayaran/" + row.file_pembayaran;
+                    return '<a href='+ path +' download>Download File</a>'
                 }
             },
             {

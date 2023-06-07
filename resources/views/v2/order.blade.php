@@ -164,7 +164,7 @@
                 confirmButtonText: 'Bayar'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    axios.post('penjualan/storeShop', {
+                    axios.post("{{ url('penjualan/storeShop') }}", {
                         id_barang: id_barang,
                         harga_ongkir: selected_ongkir.val(),
                         expedisi: selected_ongkir.attr("data-expedisi"),
@@ -173,10 +173,24 @@
                         berat_barang: $('.berat-barang').val()
                     }).then((response) => {
                         var data = response.data;
-                        console.log(response)
-                        window.open('https://wa.me/6285730982703?text=Konfirmasi%20pembelian%20no-transaksi%20"'+ response.data.no_invoice +'"');
+                        let timerInterval
+                        Swal.fire({
+                            title: 'Pembelian berhasil dilakukan!',
+                            html: 'Anda akan dialihkan ke halaman transaksi.<br> Silahkan Upload bukti pembayaran atas Invoice <b>' + data.no_invoice +'</b>' ,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            willClose: () => {
+                                clearInterval(timerInterval)
+                            }
+                            }).then((result) => {
+                            if(result.isConfirmed){
+                                window.location.href  = "{{ url('transaksi-v2') }}"
+                            }
+                            if (result.dismiss === Swal.DismissReason.timer) {
+                                window.location.href  = "{{ url('transaksi-v2') }}"
+                            }
+                        });
 
-                        // window.open(data.payment_url)
                     }).catch((error) => {
                         console.log(error.response)
                     });

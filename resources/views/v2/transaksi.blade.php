@@ -111,75 +111,92 @@
         <nav class="secondary_nav sticky_horizontal" style="">
             <div class="container">
                 <ul id="secondary_nav">
-                    <li><a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Transaksi Selesai</a></li>
-                    <li><a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Transaksi Pending</a></li>
+                    <li><a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                            aria-controls="collapseOne">Transaksi Selesai</a></li>
+                    <!-- <li><a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                            aria-expanded="false" aria-controls="collapseTwo">Transaksi Pending</a></li> -->
                 </ul>
             </div>
             <span></span>
         </nav>
         <div class="container margin_detail">
-            <div id="collapseOne" class="row collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="col-lg-12 list_menu">
-                <?php $no = 1 ?>
-                    @foreach($data as $d)
-                    <section id="section-1">
-                        <h4>{{ $d->no_invoice }} - {{ date('d F Y' ,strtotime($d->tgl_penjualan)) }}</h4>
-                        <h4>
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-sm btn-outline-secondary"><?= $d->status_transaksi ?></button>
-                            @if($d->no_resi != 0)
-                            <button type="button" class="btn btn-outline-success btn-sm">Terima Barang</button>
-                            @endif
-                            <a class="btn btn-info btn-sm" data-toggle="collapse" href="#penjualan{{ $d->id_penjualan }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Detail</a>
-                            </div>
-                        </h4>
-                        <div class="table_wrapper collapse multi-collapse <?= $no++ == 1 ? 'show' : '' ?>" id="penjualan{{ $d->id_penjualan }}">
-                            <table class="table cart-list menu-gallery">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Item
-                                        </th>
-                                        <th>
-                                            Price
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $i =1; ?>
-                                    @foreach(json_decode($d->detail_barang) as $k)
-                                    <tr>
-                                        <td class="d-md-flex align-items-center">
-                                            <figure>
-                                                <a href="{{ asset('upload/img_barang/'.$k->gambar_sampul) }}"
-                                                    title="Photo title" data-effect="mfp-zoom-in"><img
-                                                        src="{{ asset('upload/img_barang/'.$k->gambar_sampul) }}"
-                                                        data-src="{{ asset('upload/img_barang/'.$k->gambar_sampul) }}"
-                                                        alt="thumb" class="lazy"></a>
-                                            </figure>
-                                            <div class="flex-md-column">
-                                                <h4>{{ $i++ }}. {{ $k->kategori }}</h4>
-                                                <p>
-                                                    {{$k->nama_barang}}
-                                                </p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <strong>{{ number_format($k->harga,0) }}</strong>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
-                    @endforeach
-                    <!-- /section -->
-                </div>
-                <!-- /col -->
+            <div class="card">
+                <div class="card-body">
 
+                    <div id="collapseOne" class="row collapse show" aria-labelledby="headingOne"
+                        data-parent="#accordion">
+                        <div class="col-lg-12 list_menu">
+                            <?php $no = 1 ?>
+                            @foreach($data as $d)
+                            <section id="section-1">
+                                <h4>{{ $d->no_invoice }} - {{ date('d F Y' ,strtotime($d->tgl_penjualan)) }}</h4>
+                                <h4>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button type="button"
+                                            class="btn btn-sm btn-outline-secondary"><?= $d->status_transaksi ?></button>
+                                        @if(empty($d->file_pembayaran))
+                                        <button type="button" class="btn btn-warning btn-sm open-modal-file-upload" data-id-transaksi="{{ $d->id_penjualan }}" >Upload Bukti Pembayaran</button>
+                                        @endif
+                                        @if($d->no_resi != 0)
+                                        <button type="button" class="btn btn-outline-success btn-sm">Terima
+                                            Barang</button>
+                                        @endif
+                                        <a class="btn btn-info btn-sm" data-toggle="collapse"
+                                            href="#penjualan{{ $d->id_penjualan }}" role="button" aria-expanded="false"
+                                            aria-controls="multiCollapseExample1">Detail</a>
+                                    </div>
+                                </h4>
+                                <div class="table_wrapper collapse multi-collapse <?= $no++ == 1 ? 'show' : '' ?>"
+                                    id="penjualan{{ $d->id_penjualan }}">
+                                    <table class="table cart-list menu-gallery">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Item
+                                                </th>
+                                                <th>
+                                                    Price
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $i =1; ?>
+                                            @foreach(json_decode($d->detail_barang) as $k)
+                                            <tr>
+                                                <td class="d-md-flex align-items-center">
+                                                    <figure>
+                                                        <a href="{{ asset('upload/img_barang/'.$k->gambar_sampul) }}"
+                                                            title="Photo title" data-effect="mfp-zoom-in"><img
+                                                                src="{{ asset('upload/img_barang/'.$k->gambar_sampul) }}"
+                                                                data-src="{{ asset('upload/img_barang/'.$k->gambar_sampul) }}"
+                                                                alt="thumb" class="lazy"></a>
+                                                    </figure>
+                                                    <div class="flex-md-column">
+                                                        <h4>{{ $i++ }}. {{ $k->kategori }}</h4>
+                                                        <p>
+                                                            {{$k->nama_barang}}
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <strong>{{ number_format($k->harga,0) }}</strong>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+                            @endforeach
+                            <!-- /section -->
+                        </div>
+                        <!-- /col -->
+
+                    </div>
+                </div>
             </div>
-            <div  id="collapseTwo" class="row collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+
+            <div id="collapseTwo" class="row collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="col-lg-12 list_menu">
                     <?php $no = 1; ?>
                     @foreach($dataPending as $d)
@@ -187,12 +204,17 @@
                         <h4>{{ $d->no_invoice }} - {{ date('d F Y' ,strtotime($d->tgl_penjualan)) }}</h4>
                         <h4>
                             <div class="btn-group" role="group" aria-label="Basic example">
-                            <a href="{{ $d->payment_url }}" target="_blank" class="btn btn-sm btn-warning">Lanjutkan Pembayaran</a>
-                            <a href="{{ url('transaksi-v2/batal/'.$d->id_penjualan) }}" class="btn btn-sm btn-danger">Batalkan Transaksi</a> 
-                            <a class="btn btn-info btn-sm" data-toggle="collapse" href="#penjualan{{ $d->id_penjualan }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Detail</a>
+                                <a href="{{ $d->payment_url }}" target="_blank" class="btn btn-sm btn-warning">Lanjutkan
+                                    Pembayaran</a>
+                                <a href="{{ url('transaksi-v2/batal/'.$d->id_penjualan) }}"
+                                    class="btn btn-sm btn-danger">Batalkan Transaksi</a>
+                                <a class="btn btn-info btn-sm" data-toggle="collapse"
+                                    href="#penjualan{{ $d->id_penjualan }}" role="button" aria-expanded="false"
+                                    aria-controls="multiCollapseExample1">Detail</a>
                             </div>
                         </h4>
-                        <div class="table_wrapper collapse multi-collapse <?= $no++ == 1 ? 'show' : '' ?>" id="penjualan{{ $d->id_penjualan }}">
+                        <div class="table_wrapper collapse multi-collapse <?= $no++ == 1 ? 'show' : '' ?>"
+                            id="penjualan{{ $d->id_penjualan }}">
                             <table class="table cart-list menu-gallery">
                                 <thead>
                                     <tr>
@@ -244,4 +266,51 @@
     </div>
     <!-- /bg_gray -->
 </main>
+
+<form action="{{ route('uploadBuktiPembayaran') }}" method="post" enctype="multipart/form-data">
+    @csrf
+    <div class="modal fade" id="modal-pembayaran" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" style="z-index: 111111111111111;">
+    <input type="hidden" class="id-penjualan" value="0" name="id_penjualan"/>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Upload Bukti Pembayaran</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="file" class="file-pembayaran"  name="foto_pembayaran"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Upload file</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+@endsection
+@section('js')
+<script>
+    $(document).ready(function () {
+        $(".file-pembayaran").fileinput({
+            'showUpload': false,
+            'previewFileType': 'any'
+        });
+
+        $(document).on('click','.open-modal-file-upload', function(){
+            let modal = $('#modal-pembayaran');
+            modal.find('.id-penjualan').val($(this).data('id-transaksi'));
+            modal.modal('show');
+            console.log('as');
+        })
+    })
+
+</script>
 @endsection

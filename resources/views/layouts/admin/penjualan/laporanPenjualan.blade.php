@@ -40,6 +40,7 @@
                                     <th width="20px">No</th>
                                     <th>Nama Customer</th>
                                     <th>Kode Invoice</th>
+                                    <th>Bukti Pembayaran</th>
                                     <th width="200px">Status</th>
                                     <th width="200px">Opsi</th>
                                 </tr>
