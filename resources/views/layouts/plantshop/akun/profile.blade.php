@@ -61,7 +61,7 @@
                                             <td>{{ $d->no_invoice }}</td>
                                             <td>{{ date('d F Y', strtotime($d->tgl_penjualan)) }}</td>
                                             <td><?= ($d->id_status_penjualan == '5' ? 'Selesai' : 'Proses') ?></td>
-                                            <td>Rp. {{ number_format($d->total_uang,2) }} for {{ $d->total_pembelian }} item </td>
+                                            <td>Rm. {{ number_format($d->total_uang,2) }} for {{ $d->total_pembelian }} item </td>
                                         </tr>
                                         @endforeach
                                     </tbody>

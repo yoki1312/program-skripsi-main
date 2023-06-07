@@ -20,7 +20,7 @@
                                         <small><b>{{ $data->nama_kategori }}</b></small>
                                         <p>{{ $data->deskripsi }}</p>
                                         <div class="clearfix add_bottom_15">
-                                            <span class="rating">Rp. {{ number_format($data->hargaJual,0) }}</span>
+                                            <span class="rating">Rm. {{ number_format($data->hargaJual,0) }}</span>
                                         </div>
                                         <div class="clearfix add_bottom_15">
                                             <label class="form-label">Rating Barang</label><br>
@@ -82,76 +82,6 @@
                     </div>
                     <br>
                 </div>
-                <!-- /box_order_form -->
-                <div class="box_order_form">
-                    <div class="head">
-                        <div class="title">
-                            <h3>Spesifikasi</h3>
-                        </div>
-                    </div>
-                    <!-- /head -->
-                    <main>
-                        <div class="row">
-                            <div class="col-sm-12" style=" margin-left: 20px; margin-top: 20px; ">
-                                <div class="row add_bottom_30 d-flex align-items-center reviews">
-                                    <div class="col-md-12 reviews_sum_details">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <h6>Kebutuhan Air</h6>
-                                                <div class="row">
-                                                    <div class="col-xl-10 col-lg-9 col-9">
-                                                        <div class="progress">
-                                                            <div class="progress-bar" role="progressbar"
-                                                                style="width: 50%" aria-valuenow="90" aria-valuemin="0"
-                                                                aria-valuemax="100">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-3 col-3"
-                                                        style=" margin-left: -18px; margin-top: -10PX; ">
-                                                        <strong>{{ $data->kebutuhanAir }}</strong></div>
-                                                </div>
-                                                <!-- /row -->
-                                                <!-- /row -->
-                                            </div>
-                                            <div class="col-md-4">
-                                                <h6>Kebutuhan Sinar</h6>
-                                                <div class="row">
-                                                    <div class="col-xl-10 col-lg-9 col-9">
-                                                        <div class="progress">
-                                                            <div class="progress-bar" role="progressbar"
-                                                                style="width: 95%" aria-valuenow="95" aria-valuemin="0"
-                                                                aria-valuemax="100">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-3 col-3"
-                                                        style=" margin-left: -18px; margin-top: -10PX; ">
-                                                        <strong>{{ $data->kebutuhanSinar }}</strong></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <h6>Penempatan</h6>
-                                                <div class="row">
-                                                    <div class="col-xl-10 col-lg-9 col-9">
-                                                        {{ $data->caraPerawatan }}
-                                                    </div>
-                                                </div>
-                                                <!-- /row -->
-                                                <!-- /row -->
-                                            </div>
-                                        </div>
-                                        <!-- /row -->
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </main>
-                </div>
-
-                <!-- /box_order_form -->
             </div>
             <div class="col-xl-4 col-lg-4">
                 <div class="theiaStickySidebar"

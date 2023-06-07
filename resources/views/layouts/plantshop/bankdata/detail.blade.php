@@ -50,7 +50,7 @@
 
                         <h1><a href="#">{{ $data->nama_tanaman }}</a></h1>
                         <div class="price_box">
-                            <span class="current_price">Rp. {{ number_format($data->hargaMin,2) }} s/d {{ number_format($data->hargaMax,2) }}</span> 
+                            <span class="current_price">Rm. {{ number_format($data->hargaMin,2) }} s/d {{ number_format($data->hargaMax,2) }}</span> 
                         </div>
                         <div class="product_desc">
                             <p>{{ $data->spesifikasi }} </p>

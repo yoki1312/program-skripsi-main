@@ -12,7 +12,7 @@ function formatRupiah(angka, prefix){
 	}
  
 	rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-	return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+	return prefix == undefined ? rupiah : (rupiah ? 'Rm. ' + rupiah : '');
 }
 function closeSidebar(){
 	document.getElementById("bdy").classList.add('sidebar-collapse');

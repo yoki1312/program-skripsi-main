@@ -78,10 +78,10 @@
                                                                   href="product-details.html">{{ $r->nama_barang }}</a>
                                                           </h4>
                                                           <div class="price_box">
-                                                              <span class="current_price">Rp.
+                                                              <span class="current_price">Rm.
                                                                   {{ number_format($r->hargaJual,2) }}</span>
                                                               @if($r->diskon > 0)
-                                                              <span class="old_price">Rp.
+                                                              <span class="old_price">Rm.
                                                                   {{ number_format($r->diskon,2) }}</span>
                                                               @endif
                                                           </div>

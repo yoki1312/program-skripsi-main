@@ -17,7 +17,7 @@
                                 @foreach($data as $d)
                                 <li><input data-harga="{{ $d->hargaJual }}" data-id="{{ $d->id_barang }}"
                                         class="detail-barang" data-berat="{{ $d->berat }}" type="checkbox" />
-                                    -{{ $d->nama_barang }} ( {{ $d->berat }} Kg )<span>Rp.
+                                    -{{ $d->nama_barang }} ( {{ $d->berat }} Kg )<span>Rm.
                                         {{ number_format($d->hargaJual,0) }}</span></li>
                                 @endforeach
                             </ul>
@@ -157,7 +157,7 @@
             total_harga = total_harga + parseFloat(selected_ongkir.val());
             Swal.fire({
                 title: 'Lanjut Transaksi',
-                text: "Total pembayaran Rp. " + format_rp(total_harga),
+                text: "Total pembayaran Rm. " + format_rp(total_harga),
                 icon: 'question',
                 showCancelButton: true,
                 cancelButtonColor: '#d33',

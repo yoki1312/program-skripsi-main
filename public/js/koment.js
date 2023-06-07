@@ -132,7 +132,7 @@ function formatRupiah(angka, prefix) {
     }
 
     rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-    return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    return prefix == undefined ? rupiah : (rupiah ? 'Rm. ' + rupiah : '');
 }
 function reload(){
     location.reload();
@@ -142,5 +142,5 @@ function convertToRupiah(angka)
 	var rupiah = '';		
 	var angkarev = angka.toString().split('').reverse().join('');
 	for(var i = 0; i < angkarev.length; i++) if(i%3 == 0) rupiah += angkarev.substr(i,3)+'.';
-	return 'Rp. '+rupiah.split('',rupiah.length-1).reverse().join('')+',00';
+	return 'Rm. '+rupiah.split('',rupiah.length-1).reverse().join('')+',00';
 }

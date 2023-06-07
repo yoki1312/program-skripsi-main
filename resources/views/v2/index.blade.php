@@ -175,7 +175,7 @@
 
                             </ul>
                             <div class="total_drop">
-                                <div class="clearfix add_bottom_15"><strong>Total</strong><span id="total-order">Rp.
+                                <div class="clearfix add_bottom_15"><strong>Total</strong><span id="total-order">Rm.
                                         0</span></div>
                                 <a href="{{ url('order') }}" class="btn_1 outline">View Cart</a>
                             </div>
@@ -528,12 +528,12 @@
                             $('.list-order').append(`<li>
                                     <figure><img src="/upload/img_barang/` + data['gambar_sampul'] + `" data-src="img/menu-thumb-1.jpg"
                                             alt="" width="50" height="50" class="lazy"></figure>
-                                    <strong><span>` + data['nama_barang'] + `</span>Rp. ` + format_rp(data[
+                                    <strong><span>` + data['nama_barang'] + `</span>Rm. ` + format_rp(data[
                                 'hargaJual']) + `</strong>
                                     <a class="remove-order action" data-id="` + data['id_pre_order'] + `"><i class="icon_trash_alt"></i></a>
                                 </li>`);
                         }
-                        $('#total-order').text('Rp. ' + format_rp(rp_order))
+                        $('#total-order').text('Rm. ' + format_rp(rp_order))
                         $('.content-total-belanja').empty().append('<span class="total-belanja">' + i +
                             '</span>');
                     }
